@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+  /* color: #3d3028; */
+  color: #b66f39;
+  background-color: white;
+}
+
+.file-input::file-selector-button {
+  font: inherit;
+  font-weight: 500;
+  padding: 8px 12px;
+  margin-right: 1.2rem;
+  border-radius: 9px;
+  border: none;
+  color: #fff;
+  /* background-color: #c2410c; */
+  background-color: #b66f39;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+
+  hover {
+    background-color: var(--color-brand-700);
+  }
+}
