@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Button({ children, type = "primary", to = "", onClick }) {
+function Button({ children, type = "primary", to = "", onClick, disabled }) {
   const base =
     "text-lg rounded-lg tracking-wide capitalize font-semibold px-4 py-2 disabled:cursor-not-allowed transition-all ";
 
@@ -18,7 +18,11 @@ function Button({ children, type = "primary", to = "", onClick }) {
       </Link>
     );
 
-  return <button className={`${base} ${styles[type]}`}>{children}</button>;
+  return (
+    <button className={`${base} ${styles[type]}`} disabled={disabled}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;

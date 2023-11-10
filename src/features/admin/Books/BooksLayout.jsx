@@ -1,14 +1,14 @@
-import { Outlet, useLocation, useSearchParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Button from "../../../ui/Button";
 import Row from "../../../ui/Row";
 import { useEffect, useState } from "react";
 
-function ProductsLayout() {
+function BooksLayout() {
   const [activeTab, setActiveTab] = useState(1);
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.includes("addnewproduct")) setActiveTab(2);
+    if (location.pathname.includes("addnewbook")) setActiveTab(2);
     else setActiveTab(1);
   }, [activeTab, location.pathname]);
 
@@ -17,14 +17,14 @@ function ProductsLayout() {
       <Row type="horizontal">
         <Button
           type={activeTab === 1 ? "primary" : "secondary"}
-          to="/products"
+          to="/books"
           onClick={() => setActiveTab(1)}
         >
           Products List
         </Button>
         <Button
           type={activeTab === 2 ? "primary" : "secondary"}
-          to="/products/addnewproduct"
+          to="/books/addnewbook"
           onClick={() => setActiveTab(2)}
         >
           Add new product
@@ -37,4 +37,4 @@ function ProductsLayout() {
   );
 }
 
-export default ProductsLayout;
+export default BooksLayout;

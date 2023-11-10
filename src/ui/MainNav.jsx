@@ -20,7 +20,7 @@ function MainNav() {
       </li>
       <li className="rounded-lg font-semibold">
         <NavLink
-          to="/products"
+          to="/books"
           className="flex gap-2 items-center rounded-lg px-6 py-2 hover:bg-white hover:text-[#b66f39] transition-all"
         >
           <FaBoxOpen size={32} />

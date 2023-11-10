@@ -1,12 +1,10 @@
-function Label({ id, name }) {
+function Label({ id, name, error }) {
   return (
-    <label
-      id={id}
-      name={name}
-      className="text-lg text-stone-600 capitalize mb-1 font-medium"
-    >
-      {name}
-    </label>
+    <>
+      <label id={id} name={name}>
+        {name}
+      </label>
+    </>
   );
 }
 
