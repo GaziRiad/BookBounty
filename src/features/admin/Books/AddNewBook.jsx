@@ -56,31 +56,42 @@ function AddNewBook() {
           <InputText id="description" register={register} />
         </FormRow>
 
-        <div className="-mb-8">
+        <div className="-mb-2 lg:-mb-8">
           <Row type="vertical">
             <p className=" text-stone-600 font-semibold">Categories:</p>
-            <div className="mt-4 grid grid-cols-4 gap-x-10 gap-y-5">
-              {bookCategories.map((category, i) => (
-                <div key={category} className="flex items-center gap-4">
-                  <label className="text-stone-600 text-sm" htmlFor={i}>
-                    {category}
-                  </label>
-                  <Input
-                    type="checkbox"
-                    id="categories"
-                    value={category}
-                    onChange={handleCheckBox}
-                  />
-                </div>
-              ))}
+            <div className="overflow-x-scroll">
+              <div className="-mt-2 grid grid-cols-4 gap-x-44 gap-y-3 lg:grid-cols-6 lg:gap-x-10 lg:gap-y-5 lg:mt-4 ">
+                {bookCategories.map((category, i) => (
+                  <div
+                    key={category}
+                    className="flex items-center gap-1 md:gap-4"
+                  >
+                    <label className="text-stone-600 text-sm" htmlFor={i}>
+                      {category}
+                    </label>
+                    <Input
+                      type="checkbox"
+                      id="categories"
+                      value={category}
+                      onChange={handleCheckBox}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </Row>
         </div>
 
-        <div className="-mb-8">
+        <div className="-mb-2 lg:-mb-8">
           <Row type="horizontal">
             <FormRow label="Price">
-              <Input type="number" min={0} id="price" register={register} />
+              <Input
+                type="number"
+                min={0}
+                id="price"
+                register={register}
+                style={"!w-full"}
+              />
             </FormRow>
             <FormRow label="Discount">
               <Input
@@ -90,6 +101,7 @@ function AddNewBook() {
                 id="discount"
                 register={register}
                 validation={false}
+                style={"!w-full"}
               />
             </FormRow>
           </Row>
