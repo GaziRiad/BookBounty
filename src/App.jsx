@@ -12,6 +12,7 @@ import Settings from "./pages/Settings";
 import NewBook from "./pages/NewBook";
 import BooksTable from "./features/admin/Books/BooksTable";
 import PaginationSizeContext from "./contexts/PaginationSizeContext";
+import Login from "./pages/Login";
 
 function App() {
   const queryClient = new QueryClient({
@@ -38,6 +39,8 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/settings" element={<Settings />} />
             </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" />
           </Routes>
         </BrowserRouter>
         <Toaster
