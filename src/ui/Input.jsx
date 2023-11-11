@@ -10,13 +10,13 @@ function Input({
   onChange,
   children,
 }) {
-  if (type === "select")
+  if (type === "select" && register)
     return (
       <select
         {...register(id, validation ? { required: true } : {})}
         name={id}
         id={id}
-        className="bg-white border border-gray-200 px-4 py-2 w-1/4 text-lg text-zinc-800 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
+        className="bg-white border border-gray-200 px-4 py-2 w-1/4 text-zinc-800 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
       >
         {children}
       </select>
@@ -43,7 +43,7 @@ function Input({
         max={max}
         name={id}
         type="number"
-        className=" bg-white border border-gray-200 px-4 py-2 text-lg text-zinc-800 font-medium rounded-md w-[250px] focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
+        className=" bg-white border border-gray-200 px-4 py-2 text-zinc-800 font-medium rounded-md w-[250px] focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
       />
     );
 
@@ -53,7 +53,7 @@ function Input({
       id={id}
       type={type}
       name={id}
-      className=" bg-white border border-gray-200 px-4 py-2 w-1/2 text-lg text-zinc-800 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
+      className=" bg-white border border-gray-200 px-4 py-2 w-1/2 text-zinc-800 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-[#b66f39]"
     ></input>
   );
 }

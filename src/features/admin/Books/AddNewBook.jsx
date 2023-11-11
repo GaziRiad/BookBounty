@@ -9,7 +9,7 @@ import Input from "../../../ui/Input";
 import InputText from "../../../ui/InputText";
 import Row from "../../../ui/Row";
 import { useState } from "react";
-import { useBook } from "./useBook";
+import { useCreateBook } from "./useCreateBook";
 
 function AddNewBook() {
   const {
@@ -20,7 +20,7 @@ function AddNewBook() {
   } = useForm();
   const [categories, setCategories] = useState([]);
 
-  const { addBook, error, isLoading } = useBook();
+  const { addBook, error, isLoading } = useCreateBook();
 
   function handleCheckBox(e) {
     if (e.target.checked)
@@ -39,6 +39,7 @@ function AddNewBook() {
       image: data.image[0],
       status: data.status === "Published" ? true : false,
     };
+    console.log(newBook);
     addBook(newBook);
     reset();
   }
@@ -57,11 +58,11 @@ function AddNewBook() {
 
         <div className="-mb-8">
           <Row type="vertical">
-            <p className="text-lg text-stone-600 font-semibold">Categories:</p>
+            <p className=" text-stone-600 font-semibold">Categories:</p>
             <div className="mt-4 grid grid-cols-4 gap-x-10 gap-y-5">
               {bookCategories.map((category, i) => (
                 <div key={category} className="flex items-center gap-4">
-                  <label className="text-stone-600 text-base" htmlFor={i}>
+                  <label className="text-stone-600 text-sm" htmlFor={i}>
                     {category}
                   </label>
                   <Input

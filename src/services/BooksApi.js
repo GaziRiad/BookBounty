@@ -23,3 +23,24 @@ export async function uploadBook(book) {
 
   return { bookData, data };
 }
+
+export async function getBooks({ page, pageSize }) {
+  let query = supabase.from("Books").select("*", { count: "exact" });
+
+  if (page) {
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+    query = query.range(from, to);
+  }
+
+  const { data, error, count } = await query;
+
+  if (error) throw new Error("Error loading books");
+
+  return { data, count };
+}
+
+export async function deleteBook(id) {
+  const { error } = await supabase.from("Books").delete().eq("id", id);
+  if (error) throw new Error("Error deleting book");
+}

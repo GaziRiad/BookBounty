@@ -1,21 +1,17 @@
-import { useMutation } from "@tanstack/react-query";
-import { uploadBook as uploadBookApi } from "../../../services/BooksApi";
-import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import { getBooks } from "../../../services/BooksApi";
+import { useSearchParams } from "react-router-dom";
+import { usePaginationSize } from "../../../contexts/PaginationSizeContext";
 
 export function useBook() {
-  const {
-    mutate: addBook,
-    error,
-    isLoading,
-  } = useMutation({
-    mutationFn: (book) => uploadBookApi(book),
-    onSuccess: () => {
-      toast.success("Book added successfully");
-    },
-    onError: () => {
-      toast.error("Error adding new book.");
-    },
+  const { pageSize } = usePaginationSize();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get("page")) || 1;
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["Books", page, pageSize],
+    queryFn: () => getBooks({ page, pageSize }),
   });
 
-  return { addBook, error, isLoading };
+  return { data, error, isLoading };
 }

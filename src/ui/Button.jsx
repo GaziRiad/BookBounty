@@ -1,25 +1,45 @@
 import { Link } from "react-router-dom";
 
-function Button({ children, type = "primary", to = "", onClick, disabled }) {
+function Button({
+  children,
+  type = "primary",
+  size = "medium",
+  to = "",
+  onClick,
+  disabled,
+}) {
   const base =
-    "text-lg rounded-lg tracking-wide capitalize font-semibold px-4 py-2 disabled:cursor-not-allowed transition-all ";
+    "rounded-lg tracking-wide capitalize font-semibold disabled:cursor-not-allowed transition-all flex items-center gap-1 ";
 
   const styles = {
-    primary: base + "bg-[#b66f39] text-white",
+    primary: base + "bg-[#b66f39] text-white ",
     secondary:
       base +
-      "bg-white text-zinc-900 border border-grey-200 border-2 hover:bg-[#b66f39] hover:text-white",
+      "bg-white text-zinc-900 border border-grey-200 border-2 hover:bg-[#b66f39] hover:text-white ",
+  };
+
+  const variations = {
+    small: "text-sm px-2 py-1",
+    medium: "text-base px-4 py-2",
   };
 
   if (to)
     return (
-      <Link className={`${base} ${styles[type]}`} to={to} onClick={onClick}>
+      <Link
+        className={`${styles[type]} ${variations[size]}`}
+        to={to}
+        onClick={onClick}
+      >
         {children}
       </Link>
     );
 
   return (
-    <button className={`${base} ${styles[type]}`} disabled={disabled}>
+    <button
+      className={`${styles[type]} ${variations[size]}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
