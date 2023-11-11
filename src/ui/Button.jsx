@@ -19,8 +19,8 @@ function Button({
   };
 
   const variations = {
-    small: "text-sm px-2 py-1",
-    medium: "text-base px-4 py-2",
+    small: "text-xs lg:text-sm px-2 py-1",
+    medium: "text-sm lg:text-base px-4 py-2",
   };
 
   if (to)

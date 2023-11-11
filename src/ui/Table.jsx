@@ -4,14 +4,14 @@ const TableContext = createContext();
 function Table({ children }) {
   return (
     <TableContext.Provider value={{}}>
-      <div className="max-w-[1320px] overflow-x-scroll">{children}</div>
+      <div className="max-w-full overflow-x-scroll">{children}</div>
     </TableContext.Provider>
   );
 }
 
 function Header({ children }) {
   return (
-    <div className="bg-gray-300 text-zinc-700 font-semibold text-base grid grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px] items-center text-left px-2 py-2 border border-gray-200 rounded-t-lg xl:px-8 w-fit">
+    <div className="bg-gray-300 text-zinc-700 font-semibold text-base grid grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px] items-center text-left px-2 py-2 border border-gray-200 rounded-t-lg xl:px-8 w-fit lg:w-full">
       {children}
     </div>
   );
@@ -19,7 +19,7 @@ function Header({ children }) {
 
 function Body({ data, render }) {
   if (!data) return null;
-  return <div className="w-fit">{data.map(render)}</div>;
+  return <div className="w-fit lg:w-full">{data.map(render)}</div>;
 }
 
 function TableRow({ children }) {
