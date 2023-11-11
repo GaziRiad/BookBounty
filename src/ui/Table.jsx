@@ -4,7 +4,7 @@ const TableContext = createContext();
 function Table({ children }) {
   return (
     <TableContext.Provider value={{}}>
-      <div className="max-w-full overflow-x-scroll">{children}</div>
+      <div className="max-w-full overflow-x-scroll ">{children}</div>
     </TableContext.Provider>
   );
 }
