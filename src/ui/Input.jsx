@@ -2,11 +2,8 @@ function Input({
   type,
   id,
   value = "",
-  name,
-  min,
-  max = 100000,
   register,
-  validation = true,
+  validation = {},
   onChange,
   style,
   children,
@@ -14,7 +11,7 @@ function Input({
   if (type === "select" && register)
     return (
       <select
-        {...register(id, validation ? { required: true } : {})}
+        {...register(id, validation)}
         name={id}
         id={id}
         className="bg-white border border-gray-200 px-4 py-2 w-1/2 text-zinc-800 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-[#b66f39] lg:w-1/4"
@@ -38,19 +35,18 @@ function Input({
   if (type === "number")
     return (
       <input
-        {...register(id, validation ? { required: true, min: 0 } : {})}
+        {...register(id, validation)}
         id={id}
-        min={min}
-        max={max}
         name={id}
         type="number"
+        defaultValue={0}
         className={`bg-white border border-gray-200 px-4 py-2 text-zinc-800 font-medium rounded-md w-1/2 focus:outline-none focus:ring-2 focus:ring-[#b66f39] lg:w-[250px] ${style}`}
       />
     );
 
   return (
     <input
-      {...register(id, validation ? { required: true } : {})}
+      {...register(id, validation)}
       id={id}
       type={type}
       name={id}

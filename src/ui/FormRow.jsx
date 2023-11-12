@@ -1,3 +1,5 @@
+import InputError from "./InputError";
+
 function FormRow({ children, label, error, type = "" }) {
   if (type === "horizontal")
     return (
@@ -21,6 +23,7 @@ function FormRow({ children, label, error, type = "" }) {
         {label}
       </label>
       {children}
+      {error && <InputError>{error.message}</InputError>}
     </div>
   );
 }

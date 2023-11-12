@@ -48,12 +48,21 @@ function AddNewBook() {
     <>
       <Heading>Add new product</Heading>
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
-        <FormRow label="Book title">
-          <Input type="text" id="name" register={register} />
+        <FormRow label="Book title" error={errors.name}>
+          <Input
+            type="text"
+            id="name"
+            register={register}
+            validation={{ required: "Title is required" }}
+          />
         </FormRow>
 
-        <FormRow label="Book description">
-          <InputText id="description" register={register} />
+        <FormRow label="Book description" error={errors.description}>
+          <InputText
+            id="description"
+            register={register}
+            validation={{ required: "Description is required" }}
+          />
         </FormRow>
 
         <div className="-mb-2 lg:-mb-8">
@@ -84,31 +93,34 @@ function AddNewBook() {
 
         <div className="-mb-2 lg:-mb-8">
           <Row type="horizontal">
-            <FormRow label="Price">
+            <FormRow label="Price" error={errors.price}>
               <Input
                 type="number"
-                min={0}
                 id="price"
                 register={register}
+                validation={{ min: 0, required: "Price is required" }}
                 style={"!w-full"}
               />
             </FormRow>
-            <FormRow label="Discount">
+            <FormRow label="Discount" error={errors.discount}>
               <Input
                 type="number"
-                min={0}
-                max={100}
                 id="discount"
                 register={register}
-                validation={false}
+                validation={{ min: 0, max: 100 }}
                 style={"!w-full"}
               />
             </FormRow>
           </Row>
         </div>
 
-        <FormRow label="products in stock">
-          <Input type="number" min={0} id="stock" register={register} />
+        <FormRow label="products in stock" error={errors.stock}>
+          <Input
+            type="number"
+            id="stock"
+            register={register}
+            validation={{ min: 0, required: "stock is required" }}
+          />
         </FormRow>
         <FormRow type="horizontal" label="Featured">
           <Input type="checkbox" id="featured" register={register} />

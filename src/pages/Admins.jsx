@@ -1,5 +1,11 @@
+import SignUpAdminForm from "../features/auth/SignUpAdminForm";
+
 function Admins() {
-  return <div>Admins</div>;
+  return (
+    <div>
+      <SignUpAdminForm />
+    </div>
+  );
 }
 
 export default Admins;
