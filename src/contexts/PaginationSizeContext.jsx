@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 
 const PaginationSize = createContext();
 function PaginationSizeContext({ children }) {
-  const [pageSize, setPageSize] = useState(6);
+  const [pageSize, setPageSize] = useState(8);
 
   return (
     <PaginationSize.Provider value={{ pageSize, setPageSize }}>

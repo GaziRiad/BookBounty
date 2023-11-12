@@ -4,7 +4,7 @@
 
 .active {
   /* color: #3d3028; */
-  color: #b66f39;
+  color: #ca8a04;
   background-color: white;
 }
 
@@ -17,11 +17,64 @@
   border: none;
   color: #fff;
   /* background-color: #c2410c; */
-  background-color: #b66f39;
+  background-color: #ca8a04;
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
 
   /* hover {
     background-color: var(--color-brand-700);
   } */
+}
+
+.login {
+  /* background-image: linear-gradient(
+    to bottom,
+    #c7d2fe,
+    #cdd7fe,
+    #d3ddff,
+    #dae2ff,
+    #e0e7ff
+  ); */
+  background-image: linear-gradient(
+    to left bottom,
+    #e0e7ff,
+    #c9f2ff,
+    #befaf6,
+    #d3feda,
+    #fef9c3
+  );
+}
+
+.spinner-large {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #ca8a04 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #ca8a04);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner-small {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #ca8a04 94%, #0000) top/4px 4px
+      no-repeat,
+    conic-gradient(#0000 30%, #ca8a04);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+  100% {
+    transform: rotate(1turn);
+  }
 }

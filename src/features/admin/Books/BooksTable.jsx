@@ -1,17 +1,15 @@
 import Table from "../../../ui/Table";
-import Tag from "../../../ui/Tag";
-import { formatCurrency } from "../../../utils/helpers";
-import { useBook } from "./useBook";
-
-import { GiConfirmed } from "react-icons/gi";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import Pagination from "../../../ui/Pagination";
-import { HiTrash } from "react-icons/hi2";
 import BookRow from "./BookRow";
+
+import Spinner from "../../../ui/Spinner";
+import { useBook } from "./useBook";
 
 function BooksTable() {
   const { data, error, isLoading } = useBook();
-  if (isLoading) return <p>Loading...</p>;
+
+  if (isLoading) return <Spinner />;
+
   const { data: books, count } = data;
 
   return (

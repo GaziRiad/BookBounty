@@ -13,6 +13,7 @@ import NewBook from "./pages/NewBook";
 import BooksTable from "./features/admin/Books/BooksTable";
 import PaginationSizeContext from "./contexts/PaginationSizeContext";
 import Login from "./pages/Login";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 function App() {
   const queryClient = new QueryClient({
@@ -28,7 +29,13 @@ function App() {
       <PaginationSizeContext>
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/books" element={<Books />}>
