@@ -14,7 +14,11 @@ function BookRow({ book }) {
   }
 
   return (
-    <Table.TableRow key={book.id}>
+    <Table.TableRow
+      key={book.id}
+      columns="grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px]
+grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px]"
+    >
       <p className=" text-stone-800 font-semibold">{book.name}</p>
       <img
         src={book.image}

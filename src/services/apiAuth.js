@@ -32,6 +32,14 @@ export async function signup({ email, password, fullName }) {
       },
     },
   });
+
+  // After creating a new Admin adding to admin table
+  const { data: adminData, error: adminError } = await supabase
+    .from("Admins")
+    .insert([{ fullName, email, avatar: "", phoneNumber: "" }]);
+  if (adminError) throw new Error("Error adding admin.");
+
+  return { data, adminData };
 }
 
 export async function logout() {

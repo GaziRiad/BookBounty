@@ -11,10 +11,10 @@ function AccountDetails() {
 
   return (
     <div className="w-full mx-auto">
-      {/* <img src={avatar} className="w-24 rounded-full mx-auto mb-3" /> */}
       <img
-        src="/riadgazi.jpg"
-        className="w-12 rounded-full mx-auto mb-3 lg:w-16 xl:w-24"
+        src={avatar}
+        className="w-24 rounded-full mx-auto mb-3"
+        alt={`avatar image of ${fullName}`}
       />
       <p className="hidden text-center text-stone-900 font-semibold text-sm lg:block xl:text-base">
         {fullName}

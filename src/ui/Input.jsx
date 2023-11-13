@@ -1,11 +1,12 @@
 function Input({
-  type,
+  type = "text",
   id,
   value = "",
   register,
   validation = {},
   onChange,
   style,
+  placeholder = "",
   children,
 }) {
   if (type === "select" && register)

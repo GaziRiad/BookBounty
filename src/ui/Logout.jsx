@@ -10,7 +10,7 @@ function Logout() {
   return (
     <div>
       <Button
-        style="bg-white !text-gray-400 text-center px-0 mx-auto"
+        style="!bg-transparent !text-gray-400 text-center px-0 mx-auto"
         disabled={isLoading}
         onClick={handleLogout}
       >

@@ -15,7 +15,10 @@ function BooksTable() {
   return (
     <div className=" w-full mb-14">
       <Table>
-        <Table.Header>
+        <Table.Header
+          columns="grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px]
+        grid-cols-[minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_minmax(120px,_1fr)_50px]"
+        >
           <p>Name</p>
           <p>Image</p>
           <p>Price</p>
